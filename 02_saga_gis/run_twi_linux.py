@@ -14,7 +14,6 @@ sys.path.append(os.path.abspath('.'))
 from pprint import pprint
 
 import numpy as np
-import ee, rasterio
 import concurrent, gc
 
 from retry import retry
@@ -32,7 +31,7 @@ from PySAGA_cmd import (SAGA)
 PARALLEL_MODE = False
 
 # your google cloud project
-PROJECT_ID = 'sad-deep-learning-274812'
+# PROJECT_ID = 'sad-deep-learning-274812'
 
 # base path of your input images 
 PATH_INPUT = '02_saga_gis/data/input'
@@ -48,7 +47,7 @@ PATH_SAGA = '/usr/bin/saga_cmd'
 EXECUTOR = concurrent.futures.ThreadPoolExecutor(max_workers=1)
 
 
-ee.Initialize(project=PROJECT_ID)
+# ee.Initialize(project=PROJECT_ID)
 
 
 
@@ -112,7 +111,7 @@ def get_patch(path):
 
         output = twi.execute(verbose=True, ignore_stderr=True)
   
-    except ee.ee_exception.EEException as e:
+    except Exception as e:
         pprint(e)
         print(f'error at: {image_name}')
         return None, image_name
