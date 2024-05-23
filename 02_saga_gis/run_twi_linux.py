@@ -38,7 +38,7 @@ PROJECT_ID = 'sad-deep-learning-274812'
 PATH_INPUT = '02_saga_gis/data/input'
 
 # base path of your output
-PATH_OUTPUT = '02_saga_gis/data/ouput'
+PATH_OUTPUT = '02_saga_gis/data/output'
 
 # locate your .exe saga file
 PATH_SAGA = '/usr/bin/saga_cmd'
