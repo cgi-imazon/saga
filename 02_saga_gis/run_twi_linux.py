@@ -28,6 +28,9 @@ from PySAGA_cmd import (SAGA)
     Config Session
 '''
 
+# choose parallel or not
+PARALLEL_MODE = False
+
 # your google cloud project
 PROJECT_ID = 'sad-deep-learning-274812'
 
@@ -136,4 +139,9 @@ def run(items):
 
 '''
 
-run(list_images_dem)
+if PARALLEL_MODE:
+    run(list_images_dem)
+else:
+    for path in list_images_dem:
+        result = get_patch(path)
+        print(result)
